@@ -1,0 +1,50 @@
+@use "./tokens" as *;
+
+@mixin container {
+  width: min(1200px, calc(100% - 32px));
+  margin: 0 auto;
+
+  @media (min-width: $break-tablet) {
+    width: min(1200px, calc(100% - 64px));
+  }
+}
+
+@mixin card($background: $color-light, $shadow: $shadow-ambient) {
+  background: $background;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  box-shadow: $shadow;
+}
+
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 1px solid transparent;
+  border-radius: $radius-md;
+  font: 400 0.88rem/1 var(--font-display);
+  letter-spacing: 0.08px;
+  transition:
+    color 150ms ease,
+    background-color 150ms ease,
+    border-color 150ms ease,
+    box-shadow 200ms ease,
+    transform 200ms ease;
+}
+
+@mixin eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 10px;
+  border-radius: $radius-pill;
+  background: rgba(38, 37, 30, 0.04);
+  border: 1px solid $color-border;
+  font: 500 0.69rem/1.4 var(--font-ui);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $color-text-muted;
+}
